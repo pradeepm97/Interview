@@ -1,4 +1,4 @@
-package Streams.Interview.StreamService;
+package Streams.Interview.programs;
 
 import Streams.Interview.Model.Employee;
 import org.junit.jupiter.api.Test;
@@ -44,8 +44,6 @@ public class StreamsBasic {
     public void ArraysStreamTesting() {
         int[] a = {4, 1, 6, 2, 9, 0, 1, 5, 7, 2};
         List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 32, 15, 8);
-
-
 
 
         // Sorting Ascending And printing Array and List
@@ -141,7 +139,6 @@ public class StreamsBasic {
                 Collectors.maxBy(Comparator.comparingInt(Employee::getAge))));
 
 
-
         //average and Total Saalry
 
         DoubleSummaryStatistics ac = employeeList.stream().collect(Collectors.summarizingDouble(Employee::getSalary));
@@ -221,7 +218,7 @@ public class StreamsBasic {
                 .entrySet().forEach(System.out::println);
 
         // comparing the list of employeeing by age then compare by name or salary.
-        List<Employee> b =  list.stream().sorted(Comparator.comparingInt(Employee::getAge)
+        List<Employee> b = list.stream().sorted(Comparator.comparingInt(Employee::getAge)
                 .thenComparing(Employee::getName)).toList();
 
         // flatMap use.
@@ -230,9 +227,9 @@ public class StreamsBasic {
 
         List<Employee> list2 = Employee.getEmployeeList();
 
-        List<List<Employee>> listList = Arrays.asList(list1,list2);
+        List<List<Employee>> listList = Arrays.asList(list1, list2);
 
-        List<Employee> b1 =  listList.stream().flatMap(Collection::parallelStream).toList();
+        List<Employee> b1 = listList.stream().flatMap(Collection::parallelStream).toList();
         System.out.println(b1.size());
 
 
